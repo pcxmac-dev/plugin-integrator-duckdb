@@ -1,3 +1,5 @@
+> **Moved.** This plugin is now [plugin-platform-duckdb](https://github.com/pcxmac-dev/plugin-platform-duckdb) (0.2.0, the platform's Databases section). This repository is archived.
+
 # plugin-integrator-duckdb
 
 DuckDB for [Liminal](https://github.com/pcxmac-dev/liminal-charts): each feed's closed months of bars as an
