@@ -13,7 +13,8 @@ def test_every_plugin_here_conforms_to_the_class_contract():
     found = assert_module_conforms(module)
     assert [p.name for p in found] == ["duckdb"] and all(p.api == "2.3" and not p.is_record for p in found)
     (p,) = found
-    assert isinstance(p, DatabasePlugin) and (p.SYSTEM, p.KIND, p.ENGINE) == ("integrator", "database", "duckdb")
+    assert isinstance(p, DatabasePlugin) and (p.SYSTEM, p.KIND, p.ENGINE) == (DatabasePlugin.SYSTEM, "database", "duckdb")
+    assert DatabasePlugin.SYSTEM in ("integrator", "platform")  # the platform's since liminal-libs 1.90.0
     assert p.METHODS == ('file',) and p.HOLDS == ('history',) and p.SERVER is False
     assert p.options[0] == variable_of("duckdb") == "DUCKDB_INSTANCES"
     assert p.apis and p.interface()["apis"] == [a.name for a in p.apis]  # what it attaches to (2.2)
